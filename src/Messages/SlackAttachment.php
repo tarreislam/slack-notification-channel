@@ -271,17 +271,19 @@ class SlackAttachment
     }
 
     /**
-     * Add an action (button) under the attachment.
+     * Add an action (button or menu) under the attachment.
      *
      * @param  string  $title
      * @param  string  $url
      * @param  string  $style
+     * @param  string  $type
+     * @param  array  $options
      * @return $this
      */
-    public function action($title, $url, $style = '')
+    public function action($title, $url, $style = '', $type = 'button', $options = [])
     {
         $this->actions[] = [
-            'type' => 'button',
+            'type' => $type,
             'text' => $title,
             'url' => $url,
             'style' => $style,
